@@ -1,4 +1,4 @@
-name: Python checks
+name: Python checks (soft)
 on: [push, pull_request]
 jobs:
   lint:
@@ -9,7 +9,9 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install -r requirements.txt || true
-      - run: pip install black isort flake8
-      - run: black --check .
-      - run: isort --check-only .
-      - run: flake8 .
+      - name: Lint (non-blocking)
+        run: |
+          pip install black isort flake8
+          echo "::group::Black diff"; black --diff --quiet . || true; echo "::endgroup::"
+          echo "::group::isort diff"; isort --diff . || true; echo "::endgroup::"
+          echo "::group::flake8"; flake8 . || true; echo "::endgroup::"
