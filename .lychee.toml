@@ -1,0 +1,5 @@
+retry.count = 3
+retry.delay = 2
+timeout = 20
+accept = ["200..399"]
+exclude = ["https://www.linkedin.com/*","mailto:*"]
