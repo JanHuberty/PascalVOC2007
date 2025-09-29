@@ -13,7 +13,7 @@ Object detection pipeline on VOC2007 with torchvision’s Faster R-CNN.
 - Custom dataset + transforms for VOC XML
 - Training loop with checkpoints
 - Evaluation (mAP, PR), sample detections
-
+ 
 ## Quick Start
 ```bash
 # 1) Create & activate a virtual env

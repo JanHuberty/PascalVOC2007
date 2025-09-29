@@ -239,7 +239,7 @@ print("Number of trainval samples:", len(new_trainval_dataset))
 print("Number of test samples:", len(test_subset))
 
 create_trainval_txt(new_trainval_dataset, train_subset, val_dataset, root_path)
-ef custom_collate_fn(batch):
+def custom_collate_fn(batch):
     images, targets = zip(*batch)
     max_height = max(img.size(1) for img in images)
     max_width = max(img.size(2) for img in images)

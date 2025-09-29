@@ -1,13 +1,24 @@
 repos:
-  - repo: https://github.com/psf/black
-    rev: 24.8.0
-    hooks: [{ id: black }]
-  - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
-    hooks: [{ id: isort }]
-  - repo: https://github.com/pycqa/flake8
-    rev: 7.1.1
-    hooks: [{ id: flake8 }]
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.41.0
-    hooks: [{ id: markdownlint }]
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff
+        entry: .venv/Scripts/python.exe
+        args: ["-m", "ruff", "check", ".", "--fix"]
+        language: system
+        pass_filenames: false
+
+      - id: black
+        name: black
+        entry: .venv/Scripts/python.exe
+        args: ["-m", "black", "."]
+        language: system
+        pass_filenames: false
+        exclude: '^(legacy/|code\.py$)'
+
+      - id: isort
+        name: isort
+        entry: .venv/Scripts/python.exe
+        args: ["-m", "isort", "."]
+        language: system
+        pass_filenames: false
