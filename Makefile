@@ -1,17 +1,11 @@
-.PHONY: setup train eval lint fmt
-
-setup:
-	pip install -r requirements.txt
-
+.PHONY: venv install lint format test
+venv:
+	python -m venv .venv
+install:
+	. .venv/Scripts/activate && pip install -U pip && pip install -e .[dev]
 lint:
-	black --check . && isort --check-only . && flake8 .
-
-fmt:
-	black . && isort .
-
-# Example targets (adjust to your scripts)
-train:
-	python src/train.py --epochs 20 --seed 42
-
-eval:
-	python src/eval.py --checkpoint checkpoints/best.pth
+	ruff check . && black --check . && isort --check-only .
+format:
+	ruff check . --fix && black . && isort .
+test:
+	pytest -q
