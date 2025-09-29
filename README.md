@@ -1,3 +1,9 @@
+![CI](https://github.com/JanHuberty/PascalVOC2007/actions/workflows/python-ci.yml/badge.svg)
+![Links](https://github.com/JanHuberty/PascalVOC2007/actions/workflows/links.yml/badge.svg)
+![Auto format](https://github.com/JanHuberty/PascalVOC2007/actions/workflows/auto-format.yml/badge.svg)
+![License](https://img.shields.io/github/license/JanHuberty/PascalVOC2007)
+
+
 # Pascal VOC 2007 – Faster R-CNN (PyTorch)
 
 Object detection pipeline on VOC2007 with torchvision’s Faster R-CNN.  
