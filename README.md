@@ -26,34 +26,30 @@ source .venv/bin/activate
 # 2) Install deps (CPU-friendly)
 pip install -r requirements.txt
 
-# 3) Configure dataset path (choose one)
-#   Option A: Edit configs/default.yaml (recommended)
-#   Option B: Pass as an arg, e.g.:
-# python src/train.py --data_dir /path/to/VOCdevkit/VOC2007 --epochs 1 --batch-size 2 --seed 42
+# 3) Run the script
+# (adjust args if your script expects dataset paths)
+python code.py
+# e.g.: python code.py --data_dir /path/to/VOCdevkit/VOC2007 --epochs 1 --batch-size 2
 
-# 4) Evaluate (example)
-# python src/eval.py --checkpoint checkpoints/best.pth --data_dir /path/to/VOCdevkit/VOC2007
-
-Tips you can add right below:
-- If your scripts live elsewhere, change `src/train.py`/`src/eval.py` to your actual paths.
-- Keep **epochs=1** and **batch-size small** so a recruiter can run it quickly.
+> If `code.py` currently doesn’t accept CLI args, leave the plain `python code.py`. You can add args later.
 
 ---
 
-## 1.8 Add sample visuals (screenshots) and embed them
-**Clicks to upload:** Repo → **Add file → Upload files** → in the filename box type `docs/` then drop images (e.g., `docs/detection_1.jpg`, `docs/detection_2.jpg`) → **Commit**.
+# C) Results images (use your existing `Docs/` folder)
 
-**Embed in README** (where you want them to appear):
+You already created `Docs/`. Let’s embed sample detections.
+
+1) If your images are there (e.g., `Docs/detection_1.jpg`, `Docs/detection_2.jpg`), add this to the README under a “Results” heading:
+
 ```md
 ## Results
-- mAP@0.5: **…**  (put your number when you have it)
+- mAP@0.5: **…** (fill in when you have it)
 
-<!-- Single images -->
-![Detection 1](docs/detection_1.jpg)
-![Detection 2](docs/detection_2.jpg)
+![Detection 1](Docs/detection_1.jpg)
+![Detection 2](Docs/detection_2.jpg)
 
-<!-- Optional: two images side-by-side using HTML -->
+<!-- Optional: side-by-side -->
 <p float="left">
-  <img src="docs/detection_1.jpg" width="48%" />
-  <img src="docs/detection_2.jpg" width="48%" />
+  <img src="Docs/detection_1.jpg" width="48%" />
+  <img src="Docs/detection_2.jpg" width="48%" />
 </p>
