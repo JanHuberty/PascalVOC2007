@@ -1,25 +1,27 @@
+import json
 import os
+import random
+import shutil
+import xml.etree.ElementTree as ET
+from collections import Counter
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 import torch
 import torchvision
-from torchvision import transforms
-from torch.utils.data import Dataset, DataLoader
+import torchvision.transforms.functional as F
+from IPython.display import FileLink
 from PIL import Image
-import json
-import xml.etree.ElementTree as ET
-import shutil
-import matplotlib.pyplot as plt
-import pandas as pd
-from collections import Counter
+from sklearn.metrics import precision_recall_curve
+from torch.utils.data import DataLoader, Dataset
+from torchvision import transforms
+from torchvision.models import resnet50
 from torchvision.models.detection import FasterRCNN
 from torchvision.models.detection.rpn import AnchorGenerator
-import numpy as np
-from torchvision.models import resnet50
-from IPython.display import FileLink
-from tqdm import tqdm
 from torchvision.ops import box_iou
-import random
-import torchvision.transforms.functional as F
-from sklearn.metrics import precision_recall_curve
+from tqdm import tqdm
+
 # Define the source and destination directories
 source_dir = '/kaggle/input/pascal-voc-2007/VOCtrainval_06-Nov-2007'
 destination_dir = '/kaggle/working/pascal_voc_2007'
